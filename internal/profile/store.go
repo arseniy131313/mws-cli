@@ -10,9 +10,8 @@ import (
 )
 
 const (
-	DirEnvName = "MWS_PROFILE_DIR"
-	filePerm   = 0o600
-	dirPerm    = 0o700
+	filePerm = 0o600
+	dirPerm  = 0o700
 )
 
 type FileStore struct {
@@ -24,16 +23,7 @@ func NewFileStore(dir string) *FileStore {
 }
 
 func DefaultDir() string {
-	if dir := strings.TrimSpace(os.Getenv(DirEnvName)); dir != "" {
-		return dir
-	}
-
-	configDir, err := os.UserConfigDir()
-	if err == nil && strings.TrimSpace(configDir) != "" {
-		return filepath.Join(configDir, "mws", "profiles")
-	}
-
-	return filepath.Join(".mws", "profiles")
+	return "profiles"
 }
 
 func (s *FileStore) Dir() string {

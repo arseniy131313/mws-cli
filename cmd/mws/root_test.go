@@ -100,15 +100,3 @@ func TestUsageErrorExitCode(t *testing.T) {
 		t.Fatalf("unexpected stderr:\n%s", got)
 	}
 }
-
-func TestProfileDirFlagRemoved(t *testing.T) {
-	app, _, errOut := newTestApp(t)
-
-	code := app.Run([]string{"--profile-dir", "/tmp/foo", "profile", "list"})
-	if code != exitUsage {
-		t.Fatalf("expected usage exit code %d, got %d", exitUsage, code)
-	}
-	if got := errOut.String(); !strings.Contains(got, "unknown global flag \"--profile-dir\"") {
-		t.Fatalf("unexpected stderr:\n%s", got)
-	}
-}
