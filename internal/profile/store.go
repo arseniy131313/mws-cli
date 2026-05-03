@@ -26,7 +26,6 @@ func DefaultDir() string {
 	return "profiles"
 }
 
-
 func (s *FileStore) Create(p Profile) error {
 	if err := p.Validate(); err != nil {
 		return err

@@ -10,9 +10,7 @@ import (
 )
 
 var (
-	version = "dev"
-	commit  = "none"
-	date    = "unknown"
+	version = "0.1.0"
 )
 
 const appName = "mws"
@@ -150,7 +148,7 @@ Use "mws <command> --help" for more information.`)+"\n")
 }
 
 func (a *App) printVersion() {
-	fmt.Fprintf(a.out, "%s %s\ncommit: %s\nbuilt:  %s\n", appName, version, commit, date)
+	fmt.Fprintf(a.out, "%s version: %s\n", appName, version)
 }
 
 func (a *App) failUsage(format string, args ...any) int {

@@ -39,4 +39,3 @@ func (s *Service) Delete(name string) error {
 	}
 	return s.store.Delete(name)
 }
-
