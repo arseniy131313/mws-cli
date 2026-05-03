@@ -21,7 +21,6 @@ type App struct {
 	out     io.Writer
 	err     io.Writer
 	service *profile.Service
-	store   profile.Store
 }
 
 func New(out, err io.Writer) *App {
@@ -32,7 +31,6 @@ func NewWithStore(out, err io.Writer, store profile.Store) *App {
 	return &App{
 		out:     out,
 		err:     err,
-		store:   store,
 		service: profile.NewService(store),
 	}
 }
@@ -54,8 +52,7 @@ func (a *App) Run(args []string) int {
 
 	if a.service == nil {
 		dir := profile.DefaultDir()
-		a.store = profile.NewFileStore(dir)
-		a.service = profile.NewService(a.store)
+		a.service = profile.NewService(profile.NewFileStore(dir))
 	}
 
 	if len(rest) == 0 {

@@ -5,7 +5,6 @@ type Store interface {
 	Get(name string) (Profile, error)
 	List() ([]Profile, error)
 	Delete(name string) error
-	Dir() string
 }
 
 type Service struct {
@@ -41,6 +40,3 @@ func (s *Service) Delete(name string) error {
 	return s.store.Delete(name)
 }
 
-func (s *Service) Dir() string {
-	return s.store.Dir()
-}
