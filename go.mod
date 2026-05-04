@@ -1,4 +1,4 @@
-module mws-cli
+module github.com/arseniy131313/mws-cli
 
 go 1.26.2
 
