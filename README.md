@@ -23,15 +23,15 @@ go build -o mws.exe .
 ```bash
 ./mws.exe profile create --name=dev --user=dev-account --project=delivery-dev
 ./mws.exe profile list
-./mws.exe profile get --name dev
+./mws.exe profile get --name=dev
 ```
 
 ## Команды
 
 - `./mws profile create --name=<name> --user=<user> --project=<project>`
-- `./mws profile get <name> [--output json]`
+- `./mws profile get --name=<name> [--output json]`
 - `./mws profile list [--output json]`
-- `./mws profile delete--name=<name>`
+- `./mws profile delete --name=<name>`
 - `./mws version`
 - `./mws help`
 
